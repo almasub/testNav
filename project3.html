@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page title</title>
+    <style>
+        body{
+            margin:0;
+            width:100%;
+        }
+        
+        #contBox{
+            margin: auto;
+            background:#acacac;
+            padding: 10px;
+            text-align:center;
+        }
+        
+        h2{
+            padding-top:0;
+        }
+        
+        p{
+            color:#000000;
+        }
+        
+        #inputBoxes{
+            display:flex;
+            padding: 20px 0;
+            padding-left:5px;
+            background: white;
+            justify-content: center;
+            align-items: space-around;
+            text-align:center;
+            width: 80%;
+            margin:auto;
+            outline:3px solid #8c8c9957;
+            border:2px solid #8c8c9957;
+        }
+        
+       input {
+            width:50%;
+            margin:5px;
+             border:2px solid grey;
+        }
+        select{
+            width:52%;
+            margin:5px;
+             border:2px solid grey;
+        }
+     
+        #inputBoxes,input,select{
+            border-radius:5px;
+           
+        }
+        #submit{
+            
+            width:25%;
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <div id="contBox">
+        
+        <h2>AlmaTech Store</h2>
+        
+        <p>Here, you can get all tech-related on demand courses for lesser price.</p>
+        
+        <p>Fill in your details in the input boxes below then tap on the button below to get the course</p>
+        
+    </div>
+    
+    <br>
+    
+    <div id="inputBoxes">
+        
+        <form>
+            
+            <input required type="text" name="userName" id="userName" placeholder="Enter your name">
+            
+            <select name="level" id="userLevel" required>
+                
+                <option> Please select your level</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+                
+            </select>
+            
+            <select id="userCourse" name="course" required>
+                
+                <option> Please select your preferred Course</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Graphics Designing">Graphics Designing</option>
+                <option value="UI/UX">UI/UX</option>
+                <option value="Software Development">Software Development</option>
+                <option value="Game Development">Game Development</option>
+                
+            </select>
+            
+            <br>
+            
+            <button id="submit"  onclick="getPrice()">Get Price</button>
+            
+        </form> 
+      
+    </div>
+    
+    <script>
+        function getPrice(){
+            let discount;   
+            let level;
+            let userName=document.getElementById('userName').value;
+           let userLevel=document.getElementById('userLevel').value;
+           let userCourse=document.getElementById('userCourse').value;
+           
+           if(userName==''){
+               alert('Error, Please enter your name');
+               
+           } else{
+                   if(userLevel=='beginner'){
+                   level='beginner';
+                   discount='You\'ve gotten an discount of 10%';
+                   } else if(userLevel=='intermediate'){
+                   level='Intermediate';
+                   discount ='You\'ve got a discount of 5%';
+                   } else if(userLevel=='advanced'){
+                   level='advanced';
+                   discount='You\'ve got no discount';
+                   }
+                   alert(`Dear ${userName}, You chose ${userCourse} at ${level} level so ${discount}`);
+           }
+        }
+    </script>
+</body>
+</html>
